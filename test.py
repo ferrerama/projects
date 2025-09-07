@@ -8,15 +8,12 @@ app = marimo.App(width="medium")
 def _():
     import pandas as pd
     import xlwings as xw
-
-    df = pd.DataFrame({
-                        'vendedor': ['ana', 'luis', 'carlos'],
-                        'ventas': [1200, 333, 9000]
-    })
-
-    df['comision']=df['ventas']*0.10
-    df['total']=df['ventas']+df['comision']
-    xw.Book().sheets[0].range('A1').value = df
+    df = pd.read_csv('download.csv')
+    df['comision']=df['Ventas']*0.10
+    df['Total']=df['Ventas']+df['comision']
+    #xw.Book().sheets[0].range("a1").value = df
+    xw.Book().sheets["hoja1"].range("a1").value = df
+    #df
     return
 
 
