@@ -12,7 +12,7 @@ def encontrar_archivos(nombre_parcial):
     return archivos_encontrados
 
 if __name__ == "__main__":
-    nombre_a_buscar = "beneficiarios finales"   
+    nombre_a_buscar = "VBE7.DLL"   
     print(f"Buscando archivos que contienen '{nombre_a_buscar}' en todo el PC. Esto puede tardar unos minutos...")
     resultados = encontrar_archivos(nombre_a_buscar)
 

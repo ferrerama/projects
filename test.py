@@ -11,9 +11,13 @@ def _():
     df = pd.read_csv('download.csv')
     df['comision']=df['Ventas']*0.10
     df['Total']=df['Ventas']+df['comision']
-    #xw.Book().sheets[0].range("a1").value = df
-    xw.Book().sheets["hoja1"].range("a1").value = df
-    #df
+    #xw.Book().sheets["hoja1"].range("a1").value = df
+    df
+    return
+
+
+@app.cell
+def _():
     return
 
 
