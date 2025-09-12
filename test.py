@@ -5,19 +5,18 @@ app = marimo.App(width="medium")
 
 
 @app.cell
-def _():
-    import pandas as pd
-    import xlwings as xw
-    df = pd.read_csv('download.csv')
-    df['comision']=df['Ventas']*0.10
-    df['Total']=df['Ventas']+df['comision']
-    #xw.Book().sheets["hoja1"].range("a1").value = df
-    df
-    return
-
-
-@app.cell
-def _():
+def _(mo):
+    _df = mo.sql(
+        f"""
+        import pandas as pd
+        import xlwings as xw
+        df = pd.read_csv('download.csv')
+        df['comision']=df['Ventas']*0.10
+        df['Total']=df['Ventas']+df['comision']
+        xw.Book().sheets["hoja1"].range("a1").value = df
+        #df
+        """
+    )
     return
 
 
